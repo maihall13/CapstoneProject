@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    {% if logstate %}
+        <!-- if logged in then-->
+        <ul>
+            <li><a class="symbol">A/O</a></li>
+            <li><a>ABOUT</a></li>
+            <li><a>CONTACT</a></li>
+            <li><a>PROFILE</a></li>
+            <li><a>LOGOUT</a></li>
+        </ul>
+    {% else %}
+        <!-- if NOT logged in then-->
+        <ul>
+            <li><a class="symbol">A/O</a></li>
+            <li><a>ABOUT</a></li>
+            <li><a>CONTACT</a></li>
+            <li><a>SIGN UP/LOGIN</a></li>
+        </ul>
+    {% endif %}
+
+    <body>
+        <h1>ALCHEMY OUTLET</h1>
+        <p>Get inspired in style with A/O. Enter a city and state to get started</p>
+    <form>
+        <div class="searchwrap">
+           <div class="search">
+               <input type="text" class="searchTerm" placeholder="City, State" name = "search" pattern="[A-Za-z]+" title="Enter city, state" required>
+               <button type="submit" class="searchButton" value="Search"><i class="fa fa-search"></i></button>
+           </div>
+        </div>
+        </form>
+    </body>
+
+
+</html>
