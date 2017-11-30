@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <div class="topnav">
+        <ul>
+
+            <li><a class="symbol" href="/">A/O</a></li>
+
+            <li><a class="search-container">
+                <form>
+                    <input type="text" placeholder="city, state" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </a></li>
+
+            {% if logstate %}
+            <!-- if logged in then-->
+            <li style="float: right"><a>LOGOUT</a></li>
+            <li style="float: right"><a>PROFILE</a></li>
+
+            {% else %}
+               <!-- if NOT logged in then-->
+            <li style="float: right"><a>SIGN UP/LOGIN</a></li>
+            {% endif %}
+
+         </ul>
+    </div>
+
+    {%  block body %}{% endblock %}
+
 </html>

@@ -12,8 +12,17 @@ def home():
     if session.get('logged_in') == True:
         logstate = True
 
+        return render_template("home.html", logstate = logstate)
+
     return render_template("home.html", logstate = logstate)
 
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        location = request.form['search']
+        test = "\\udc4c \\ud83d \\udeab \\u2714 \\ufe0f"
+
+        return render_template("search.html", location=location, test = test)
 
 if __name__ == '__main__':
     app.secret_key = "what"

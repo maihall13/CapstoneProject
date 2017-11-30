@@ -1,0 +1,71 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Arial Narrow";
+}
+.symbol{
+    padding: 6.5px 16px;
+    font-size: 30px;
+    font-family: "Arial Unicode MS";
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+a, a:visited, .symbol:visited{
+    color: black;
+}
+
+a a:active {
+    color: black;
+}
+
+.search-container {
+    float: right;
+    padding: 10px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    width: 400px;
+    font-family: "Arial Narrow";
+
+}
+
+.search-container form input[type=text]{
+    float: left;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    height: 30px;
+    width: 350px;
+    font-size: 15pt;
+    font-family: "Arial Narrow";
+}
+
+.search-container form button[type=submit] {
+    float: left;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    height: 34px;
+    width: 45px;
+    font-family: "Arial Narrow";
+}
+
+.topnav {
+    border-bottom: 1px solid black;
+    border-bottom-style: outset;
+    padding-bottom: 15px;
+}

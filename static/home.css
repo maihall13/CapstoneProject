@@ -1,7 +1,7 @@
 body {
     background-image: url("https://raw.githubusercontent.com/maihall13/CapstoneProject/master/Images/501d70cfbcde9fef046cef299dcf20562.jpg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: cover;
 
 }
@@ -78,7 +78,7 @@ h1 {
     font-size:50pt;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    padding-top: 100px;
+    padding-top: 50px;
     text-align: center;
         color: snow;
 

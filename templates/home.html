@@ -10,7 +10,7 @@
     {% if logstate %}
         <!-- if logged in then-->
         <ul>
-            <li><a class="symbol">A/O</a></li>
+            <li><a class="symbol" href="/">A/O</a></li>
             <li><a>ABOUT</a></li>
             <li><a>CONTACT</a></li>
             <li><a>PROFILE</a></li>
@@ -19,7 +19,7 @@
     {% else %}
         <!-- if NOT logged in then-->
         <ul>
-            <li><a class="symbol">A/O</a></li>
+            <li><a class="symbol" href="/">A/O</a></li>
             <li><a>ABOUT</a></li>
             <li><a>CONTACT</a></li>
             <li><a>SIGN UP/LOGIN</a></li>
@@ -30,15 +30,15 @@
     <body>
         <h1>ALCHEMY OUTLET</h1>
         <p>Get inspired in style with A/O. Enter a city and state to get started</p>
-    <form>
-        <div class="searchwrap">
-           <div class="search">
-               <input type="text" class="searchTerm" placeholder="City, State" name = "search" pattern="[A-Za-z]+" title="city, state" required>
-               <button type="submit" class="searchButton" value="Search"><i class="fa fa-search"></i></button>
-           </div>
-        </div>
+        <form action = "{{url_for('search')}}" method = "POST">
+            <div class="searchwrap">
+               <div class="search">
+                   <input type="text" class="searchTerm" placeholder="City, State" name = "search" pattern="([A-Za-z,]+ )\w+" title="city, state" required>
+                   <button type="submit" class="searchButton" value="Search"><i class="fa fa-search"></i></button>
+               </div>
+            </div>
         </form>
     </body>
-
+{{ test }}
 
 </html>
