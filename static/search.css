@@ -1,0 +1,138 @@
+.weather {
+   /* border: 1px solid black;*/
+    margin: 0 auto;
+    width: 500px;
+    height: 220px;
+}
+
+.weathertitle{
+    /*border: 1px solid green;*/
+    margin: 0 auto;
+    width: 500px;
+}
+
+.weathertitle h3{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    text-align: center;
+    font-family: "Gadugi";
+}
+
+.weathertitle h4{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    text-align: center;
+    font-family: "Gadugi";
+}
+
+.currentweather {
+    /*border: 1px solid red;*/
+    margin: 0 auto;
+    width: 245px;
+    display: inline;
+    height: 100px;
+    float: left;
+}
+
+.currentweather h1{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    display: inline;
+    font-size: 30pt;
+    font-family: "Gadugi";
+}
+
+.currentweather img{
+    width: 100px;
+    height: 100px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    display: inline;
+    float: left;
+}
+
+.weatherspecs {
+    /*border: 1px solid purple;*/
+    margin: 0 auto;
+    width: 200px;
+    display: inline;
+    float: right;
+    height: 100px;
+}
+
+.weatherspecs p {
+    font-family: "Arial Narrow";
+}
+
+
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.sturdy td:nth-child(1) {
+    width: 10%;
+   /* border: 1px solid black;*/
+
+}
+
+.sturdy td:nth-child(2) {
+    width: 80%;
+    text-align: left;
+    font-size: 17px;
+   /* border: 1px solid black;*/
+
+}
+
+.sturdy td:nth-child(3) {
+    width: 10%;
+   /* border: 1px solid black;*/
+
+}
+
+
+
+
+/* for images on load*/
+.sturdy2 td:nth-child(1) {
+    width: 16%;
+}
+
+.sturdy2 td:nth-child(2) {
+    width: 16%;
+}
+
+.sturdy2 td:nth-child(3) {
+    width: 16%;
+}
+
+.sturdy2 td:nth-child(4) {
+    width: 16%;
+}
+
+.sturdy2 td:nth-child(5) {
+    width: 16%;
+}
+
+
+.header{
+    display: block;
+    margin-left: 25%;
+}
+
+
+
+.header img{
+    float: left;
+    width: 100px;
+    height: 50px
+
+}
+
+.header h6 {
+    position: relative;
+    font-size: 30px;
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
+}

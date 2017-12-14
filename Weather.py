@@ -9,10 +9,12 @@ import pytemperature
 
 class Weather():
     def __init__(self):
-        file = open("weatherkey.txt", "r")
-        key = file.readline()
-        file.close()
-        self.key = key
+        #file = open("weatherkey.txt", "r")
+        #key = file.readline()
+        #file.close()
+        #self.key = key
+
+        self.key = "256b72cf5d99fffedb833cc657964aad"
 
     def time_converter(self, time):
         converted_time = datetime.datetime.fromtimestamp(
@@ -31,7 +33,7 @@ class Weather():
         output = url.read().decode('utf-8')
         raw_api_dict = json.loads(output)
         url.close()
-        #print(raw_api_dict)
+        print(raw_api_dict)
         self.m_symbol = '\xb0' + 'F'
 
         self.data = dict(
@@ -42,7 +44,8 @@ class Weather():
             temp_min=raw_api_dict.get('main').get('temp_min'),
             humidity=raw_api_dict.get('main').get('humidity'),
             pressure=raw_api_dict.get('main').get('pressure'),
-            sky=raw_api_dict['weather'][0]['main'],
+            sky=raw_api_dict['weather'][0]['description'],
+            icon=raw_api_dict['weather'][0]['icon'],
             sunrise=self.time_converter(raw_api_dict.get('sys').get('sunrise')),
             sunset=self.time_converter(raw_api_dict.get('sys').get('sunset')),
             wind=raw_api_dict.get('wind').get('speed'),
@@ -51,6 +54,10 @@ class Weather():
             cloudiness=raw_api_dict.get('clouds').get('all')
         )
         return self.data
+    def getIcon(self):
+        icon = self.data['icon']
+        icon = "http://openweathermap.org/img/w/" + icon + ".png"
+        return icon
 
     def getWind(self):
         wind = self.data['wind']
@@ -81,6 +88,10 @@ class Weather():
         low = str(pytemperature.k2f(low)) + self.m_symbol
         return low
 
+#weather = Weather()
+#weather.getAllInfo("37.3860517", "-122.0838511" )
+#print(weather.getDescription())
+#print(weather.getIcon())
 """
 if __name__ == '__main__':
     try:

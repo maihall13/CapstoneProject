@@ -1,6 +1,53 @@
 {% extends 'header.html'%}
 {% block body %}
-{{ location }}
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+    </head>
+    <div class="weather">
+
+    <div class="weathertitle">
+        <h3>{{ location }}</h3>
+        <h4>{{ date }}</h4>
+        <h4>{{ description }}</h4>
+    </div>
+
+    <div class="currentweather">
+        <img src={{ icon }}>
+        <br><h1>{{ current }}</h1>
+    </div>
+
+    <div class="weatherspecs">
+        <p>High: {{ high }} <br>
+            Low: {{ low }} <br>
+            Humidity: {{ humidity }}<br>
+            Wind: {{ wind }}</p>
+    </div>
+
+</div>
+
+<form>
+    <table class = "sturdy">
+        <td></td>
+            <td>
+
+                <h6 style="text-align: center; font-size: 15px; font-family: 'Arial Narrow'; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">Here's some ideas of what to wear!</h6>
+                <p></p>
+                <table class="sturdy2">
+                    {% for picture in pictures %}
+                       <tr>
+                           {% for p in picture %}
+                               <td><img style="width: 200px;" src={{p}}></td>
+                           {% endfor %}
+                       </tr>
+                    {% endfor %}
+                </table>
+
+
+            </td>
+        <td></td>
+    </table>
+</form>
+
 {{ test }}
 
 {% endblock %}

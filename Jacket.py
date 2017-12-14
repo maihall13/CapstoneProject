@@ -1,17 +1,24 @@
 #check if its sweather worthy
+import re
+import urllib
+
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
 class Jacket:
     def jacketWorthy(self, place):
-        place = place.replace(",","-")
-        url = "https://doineedajacket.com/weather/" + place
-        soup = BeautifulSoup(urlopen(url).read(), 'html.parser')
-        verdict = soup.find("h1").getText()
-        if verdict == "Yes":
-            return True
-        else:
-            return False
+        try:
+            place = place.replace(" ", "")
+            place = place.replace(",","-")
+            url = "https://doineedajacket.com/weather/" + place
+            soup = BeautifulSoup(urlopen(url).read(), 'html.parser')
+            verdict = soup.find("h1").getText()
+            if verdict == "Yes":
+                return True
+            else:
+                return False
+        except Exception as e:
+            print(e)
 
 
 #jacket = Jacket()
@@ -21,3 +28,4 @@ class Jacket:
 #    print("true")
 #else:
 #    print("false")
+

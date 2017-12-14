@@ -1,5 +1,6 @@
 import json
 import re
+import urllib
 import webbrowser
 import requests
 from bs4 import BeautifulSoup
@@ -24,7 +25,7 @@ url = "https://www.facebook.com/v2.11/dialog/oauth?client_id=338987829901432&dis
 #    response = s.post(url,allow_redirects=True)
 #response = urlopen(url, allow_redirects=True)
 #    print(response.status_code)
-
+import FaceDetect
 
 class Facebook():
     def __init__(self):
@@ -98,11 +99,10 @@ class Instagram():
 
     def getImages(self, url):
         soup = BeautifulSoup(urlopen(url).read(), 'html.parser')
-        #body
-        #span
-        #img alt
-
         test = (soup.findAll("script", type="text/javascript"))
+
+
+
         script = []
         for i in test[2]:
             script = i
@@ -156,10 +156,12 @@ class Instagram():
                     #print(final_img)
 
             print("\n")
+        #new_list = []
+        #x = FaceDetect.FacePlusPlus()
+        #for i in images:
+        #    if x.isFace(i) == True:
+        #        new_list.append(i)
 
-            #if datetime.datetime.fromtimestamp(int(k[date_start:date_end])) < datetime.datetime.now()-datetime.timedelta(hours=12):
-            #    break
-            #else:
         return images
 
     #Converts Unix time stamp from instagram
@@ -174,15 +176,15 @@ class Instagram():
         return image
 
 #testing
-location = "chicago,il"
-latlong = {'lat': 41.8781136, 'lng': -87.6297982}
-x = Instagram()
+#location = "millennium park,chicago"
+#latlong = {'lat': 41.8825524, 'lng': -87.62255139999999}
+#x = Instagram()
 
-url = x.getURL(latlong, location)
+#url = x.getURL(latlong, location)
 #print(url)
-images = x.getImages(url)
-images = list(set(images))
-print(images)
+#images = x.getImages(url)
+#images = list(set(images))
+#print(images)
 #print("\n")
 
 #detect = Clarifai.Clarifai()
@@ -191,3 +193,8 @@ print(images)
 #test_caption = ['The', 'weather', 'these', 'days', 'is', 'like', 'spring', '\\ud83d', '\\udc97', '\\ud83d', '\\udc97', '\\ud83d', '\\udc97Thanks', 'for', 'every', 'single', 'follower', 'of', '@ruby_thecorgi.', 'I', 'woof', 'you!\\nBandana', 'from:', '@courtneyahndesign\\n.\\n.\\n.\\n.', '\\u2764', '\\ud83d', '\\udc3eCORGI', 'DOG', 'are', 'my', 'entire', 'life', '\\ud83d', '\\udc3e', '\\u2764\\n', '\\ud83d', '\\udeab', '\\u2714', '\\ufe0f', 'Follow:', '@corgidog_gemma', '\\ud83c', '\\udf1f', '\\u21c7', '\\u21c7', '\\u21c7', 'For', 'Fun', '\\u2714', '\\ufe0f', '\\ud83d', '\\udcf7', '\\ud83d', '\\udc4c\\n', '\\ud83d', '\\udeab', '\\u2714', '\\ufe0f', 'Follow:', '@corgidog.team_rose', '\\ud83c', '\\udf1f', '\\u2b05', '\\u2b05', '\\u2b05', 'For', 'More', 'Fun', '\\u2714', '\\ufe0f', '\\ud83d', '\\udcf7', '\\ud83d', '\\udc4c\\nTag', '@corgibabyhouse', 'a', 'friend', 'who', 'needs', 'to', 'see', 'this!\\n', '\\ud83d', '\\udeab', '\\u2714', '\\ufe0f', '\\ufe0f', 'FOLLOW', 'my', 'partners:', '\\ud83d', '\\udc3e', '\\u2764', '\\ud83d', '\\udc66', '\\ud83d', '\\udc69', '\\u2764', '\\ud83d', '\\udc3e\\n@corgibabyhouse', '\\ud83c', '\\udf1f\\n@horsesspecies.club', '\\ud83c', '\\udf1f\\n@dachshund.dog.club', '\\ud83c', '\\udf1f\\n@boxerlovedog', '\\ud83c', '\\udf1f\\n@boxerdog.club', '\\ud83c', '\\udf1f\\n!!Thank', 'you', 'so', 'much', '\\ud83d', '\\udc95', '\\ud83d', '\\udc9e', '\\ud83d', '\\udc95', '!!\\n@ruby_thecorgi', '@clubfrenchbulldog.team', '@pugs.dogclub', '\\ud83d', '\\udc95', '\\ud83d', '\\udc95', '\\ud83d', '\\udc95\\n#corgi', '#corgination', '#corgisofinstagram', '#corgilove', '#corgicommunity', '#corgistagram', '#welshcorgi#corgipuppy#corgigram#corgiplanet#corgiaddict#corgistagrams#dogdailystyle', '#corgilove', '#corgi', '#corgis#corgipuppy', '#corgilover', '#corgistagram#welshcorgi', '#puppylove#dog', '#dogs#doglover', '#dogs_of_instagram#cute#corgisofinstagram', '#love#dogoftheday', '#cutedog']
 #caption = x.getImages("https://www.instagram.com/explore/locations/108659242498155/")
 #print(caption)
+
+
+#html = urllib.request.Request("https://www.instagram.com/explore/locations/108659242498155/")
+#html_page = urllib.request.urlopen(html).read()
+#print(re.findall("<script text/javascript", html_page))

@@ -13,10 +13,11 @@ class PixLab():
 
     def __init__(self):
         self.counter = 0
-        file = open("pixlabkey.txt", "r")
-        key = file.readline()
-        file.close()
-        self.key = key
+        #file = open("pixlabkey.txt", "r")
+        #key = file.readline()
+        #file.close()
+        #self.key = key
+        self.key = "c85e690af325004980fef50d15f7e1cc"
 
     def getImages(self, image_list):
         self.new_image_list = []

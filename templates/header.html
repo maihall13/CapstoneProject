@@ -4,7 +4,6 @@
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     </head>
 
     <div class="topnav">
@@ -13,25 +12,77 @@
             <li><a class="symbol" href="/">A/O</a></li>
 
             <li><a class="search-container">
-                <form>
+                <form action = "{{url_for('search')}}" method = "POST">
                     <input type="text" placeholder="city, state" name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
+                    <label class="choices">
+                    <input type="radio" name="Gender" value="Women" checked>
+                    WOMEN
+                    </label>
+                    <label class="choices">
+                        <input type="radio" name="Gender" value="Men">
+                        MEN
+                    </label>
                 </form>
             </a></li>
 
             {% if logstate %}
             <!-- if logged in then-->
-            <li style="float: right"><a>LOGOUT</a></li>
-            <li style="float: right"><a>PROFILE</a></li>
+            <li style="float: right"><a href="/logout">LOGOUT</a></li>
+            <li style="float: right"><a href="/profile">PROFILE</a></li>
 
             {% else %}
                <!-- if NOT logged in then-->
-            <li style="float: right"><a>SIGN UP/LOGIN</a></li>
+            <li class="button" onclick="document.getElementById('login-form').style.display='block';">SIGN UP/LOGIN</li>
             {% endif %}
+        </ul>
 
-         </ul>
+     <form id="login-form" class="login-form">
+            <span onclick="document.getElementById('login-form').style.display='none'" class="form-top">X</span>
+            <br>
+            <label>
+                Email
+                <input type="text" name="email">
+            </label>
+            <br>
+            <label>
+                Password
+                <input type="password" name="password">
+            </label>
+            <br>
+            <button formaction="{{url_for('login')}}" formmethod= "POST">Login</button><br>
+            No account? <a href='/signup'>Create one!</a>
+            <input type="text" name="pagename" value="{{ formname }}" style="display: none">
+        </form>
+
+        {% if signuperror %}
+        <form id="login-form-error" class="login-form" style="display: block">
+            <span onclick="document.getElementById('login-form-error').style.display='none'" class="form-top">X</span>
+            <br>
+            <p class="error-message">{{ error }}</p>
+            <label>
+                Email
+                <input type="text" name="email">
+            </label>
+            <br>
+            <label>
+                Password
+                <input type="password" name="password">
+            </label>
+            <br>
+            <button formaction="{{url_for('login')}}" formmethod= "POST">Login</button><br>
+            No account? <a href='/signup'>Create one!</a>
+        </form>
+        {% endif %}
+
     </div>
 
+
     {%  block body %}{% endblock %}
+
+    <footer class="footer">
+        <a href='/about'>ABOUT</a><br>
+        <a href='/contact'>CONTACT</a>
+    </footer>
 
 </html>

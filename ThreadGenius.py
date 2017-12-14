@@ -7,10 +7,11 @@ from threadgenius.types import ImageUrlInput
 
 class TGenius():
     def __init__(self):
-        file = open("threadgeniuskey.txt", "r")
-        key = file.readline()
-        file.close()
-        self.key = key
+        #file = open("threadgeniuskey.txt", "r")
+        #key = file.readline()
+        #file.close()
+        #self.key = key
+        self.key = "key_OWVhZGU4MDUyZjQ2Zjk5N2VjM2M5MTUzZGFhMTI5"
 
     def getDetails(self, image_list):
         keywords=[]

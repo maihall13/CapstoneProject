@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'header.html'%}
+{% block body %}
+    {% for details in info %}
+        <p style="font-family:'Candara'; font-size: 50pt; text-align: center; ">{{ details[3] }}</p>
+        <p style="font-family: 'Arial Narrow'; font-size: 20pt;text-align: center">{{ details[1] }}</p>
+    {% endfor %}
+        <p style="font-family: 'Arial Narrow'; font-size: 20pt;text-align: center">Favorite feature coming soon!</p>
 
-</body>
-</html>
+{% endblock %}

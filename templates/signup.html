@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'header.html'%}
+{% block body %}
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+    </head>
+    <p style="font-family:'Candara'; font-size: 40pt; text-align: center; ">SIGN UP</p>
+    {{ formname }}
+    <form action = "{{url_for('confirmed')}}" method = "POST">
+        <label>
+            Name:
+            <input type="text" name="name" required>
+        </label>
+        <br>
+        <label>
+            Email:
+            <input type="email" name="email" required>
+        </label>
+        <br>
+        <label>
+            Password:
+            <input type="password" required>
+        </label>
+        <br>
+        <label>
+            Confirm Password:
+            <input type="password" name="password" required>
+        </label>
+        <button type="submit">CREATE</button>
 
-</body>
-</html>
+    </form>
+{% endblock %}
